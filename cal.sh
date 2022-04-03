@@ -2,6 +2,8 @@
 # (calculater.script) cal.sh
 # 2020111395 Kim HyeonJi
 
+echo "project management in github"
+
 PS3="select menu: "
 
 declare -a numbers
