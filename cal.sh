@@ -4,10 +4,12 @@
 
 PS3="select menu: "
 
-read num1 < num1.txt
+declare -a numbers
+
+read numbers[0] < num1.txt
 echo "...read num1.txt..."
 
-read num2 < num2.txt
+read numbers[1] < num2.txt
 echo "...read num2.txt..."
 
 if [ $# -lt 1 ]; then
@@ -22,15 +24,15 @@ fi
 
 echo "...run calculater..."
 case $1 in
-	add) let result=$num1+$num2 ;;
-	sub) let result=$num1-$num2 ;;
-	div) let result=$num1/$num2 ;;
-	mul) let result=$num1*$num2 ;;
+	add) let result=${numbers[0]}+${numbers[1]} ;;
+	sub) let result=${numbers[0]}-${numbers[1]} ;;
+	div) let result=${numbers[0]}/${numbers[1]} ;;
+	mul) let result=${numbers[0]}*${numbers[1]} ;;
 esac
 
 echo
-echo "num1 : $num1"
-echo "num2 : $num2"
+echo "num1 : ${numbers[0]}"
+echo "num2 : ${numbers[1]}"
 echo "op : $1"
 echo "result : $result"
 
